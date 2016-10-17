@@ -25,6 +25,9 @@ class Movie < ActiveRecord::Base
               rating = country_info['certification']
             end
           end
+          if rating == ''
+            rating = "NA"
+          end
           response_object_hash['rating'] = rating
           result.push(response_object_hash)
         end
