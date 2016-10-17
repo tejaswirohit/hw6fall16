@@ -14,4 +14,11 @@ describe Movie do
       end
     end
   end
+  describe 'adding to RP by id' do
+    it 'should call tmdb with id' do
+      expect(Tmdb::Movie).to receive(:detail).with('941').and_call_original
+      Movie.create_from_tmdb('941')
+      
+    end
+  end
 end
